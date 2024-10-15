@@ -36,17 +36,17 @@ const bookContainer = document.querySelector(".book-container");
             bookContainer.appendChild(removeLabel);
         }
 
-        for(let i = 0; i < myLibrary.length; i++){
+        myLibrary.forEach((book, index) => {
             const titleDiv = document.createElement("div");
             const authorDiv = document.createElement("div");
             const pagesDiv = document.createElement("div");
             const readDiv = document.createElement("button");
             const removeButton = document.createElement("button");
 
-            titleDiv.textContent = myLibrary[i]["name"];
-            authorDiv.textContent = myLibrary[i]["author"];
-            pagesDiv.textContent = myLibrary[i]["pages"];
-            readDiv.textContent = myLibrary[i]["read"];
+            titleDiv.textContent = book.name;
+            authorDiv.textContent = book.author;
+            pagesDiv.textContent = book.pages;
+            readDiv.textContent = book.read;
             removeButton.textContent = "Remove";
             
 
@@ -63,7 +63,7 @@ const bookContainer = document.querySelector(".book-container");
                 bookContainer.removeChild(pagesDiv);
                 bookContainer.removeChild(readDiv);
                 bookContainer.removeChild(removeButton);
-                myLibrary.splice(i, 1);
+                myLibrary.splice(index, 1);
             });
 
             readDiv.addEventListener("click", () => {
@@ -74,7 +74,7 @@ const bookContainer = document.querySelector(".book-container");
                     readDiv.textContent = "yes";
                 }
             });
-        }
+        })
   }
 
 
