@@ -9,6 +9,15 @@ function Book(name, author, pages, read) {
     this.read = read;
   }
 
+  Book.prototype.toggleRead = function () {
+    if(this.read == "yes"){
+        return this.read = "no";
+    }
+    else {
+        return this.read = "yes";
+    }
+  }
+
 
 const bookContainer = document.querySelector(".book-container");
 
@@ -67,8 +76,10 @@ const bookContainer = document.querySelector(".book-container");
             });
 
             readDiv.addEventListener("click", () => {
+                book.toggleRead();
+
                 if(readDiv.textContent == "yes"){
-                    readDiv.textContent = "no"
+                    readDiv.textContent = "no";
                 }
                 else {
                     readDiv.textContent = "yes";
@@ -114,7 +125,7 @@ bookAuthorInputLabel.setAttribute("for", "author");
 
 
 const bookPagesInput = document.createElement("input");
-bookPagesInput.setAttribute("type", "text");
+bookPagesInput.setAttribute("type", "number");
 bookPagesInput.setAttribute("id", "pages");
 const bookPagesInputLabel = document.createElement("label");
 bookPagesInputLabel.textContent = "Book Pages";
