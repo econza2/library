@@ -136,7 +136,6 @@ bookPagesInputLabel.setAttribute("for", "pages");
 const bookReadInput = document.createElement("input");
 bookReadInput.setAttribute("type", "checkbox");
 bookReadInput.setAttribute("id", "read");
-bookReadInput.setAttribute("value", "yes");
 const bookReadInputLabel = document.createElement("label");
 bookReadInputLabel.textContent = "Book Read";
 bookReadInputLabel.setAttribute("for", "read");
@@ -176,6 +175,16 @@ formButton.addEventListener("click", () => {
 
 bookSubmitButton.addEventListener("click", (event) => {
     event.preventDefault();
+
+
+    if(bookReadInput.checked){
+        bookReadInput.setAttribute("value", "yes");
+    }
+    else {
+        bookReadInput.setAttribute("value", "no");
+    }
+
+
     myLibrary.push(new Book(bookTitleInput.value, bookAuthorInput.value, bookPagesInput.value, bookReadInput.value));
     console.log(myLibrary);
     body.removeChild(bookForm);
