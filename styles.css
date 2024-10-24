@@ -1,5 +1,13 @@
 .book-container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 1fr;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 1fr;
+}
+
+.error {
+  color: red;
+}
+
+input:invalid {
+  background-color: red;
 }
